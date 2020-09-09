@@ -2,7 +2,6 @@
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
-    "rootDir": "./",
     "declaration": true,                   
     "strict": true,                           
     "noImplicitAny": true,                 
