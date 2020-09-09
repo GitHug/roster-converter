@@ -1,0 +1,51 @@
+{
+  "name": "roster-converter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/GitHug/roster-converter.git",
+  "author": "Fredrik Makila <fredrik@takanoha.io>",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon index.ts",
+    "cm": "git-cz"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^9.1.2",
+    "@commitlint/config-conventional": "^9.1.2",
+    "@types/express": "^4.17.8",
+    "@types/node": "^14.6.4",
+    "@typescript-eslint/eslint-plugin": "^4.1.0",
+    "@typescript-eslint/parser": "^4.1.0",
+    "commitizen": "^4.2.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.8.1",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.3.0",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.1.1",
+    "standard-version": "^9.0.0",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint --fix"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
