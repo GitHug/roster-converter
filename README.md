@@ -1,13 +1,6 @@
 # Roster Converter
 Converts Battlescribe roster files to Javascript.
 
-### Prerequisities
-In order to run this container you'll need docker installed.
-
-* [Windows](https://docs.docker.com/windows/started)
-* [OS X](https://docs.docker.com/mac/started/)
-* [Linux](https://docs.docker.com/linux/started/)
-
 ### Usage
 
 #### Container Parameters
@@ -22,12 +15,18 @@ docker container run -d -e SILENT=true -e PORT=8080 -p 49160:8080 githug/roster-
 
 #### Environment Variables
 
-* `PORT` - Port that application listens to
-* `SILENT` - Set to suppress logging
+* `PORT` - Port that the application listens to.
+* `SILENT` - Set to suppress logging.
+
+### Endpoints
+The application has two endpoints.
+
+* `GET /ping` - Used for health check.
+* `POST /conversion` - Expects `multipart/form-data` with an attached [Battlescribe](https://battlescribe.net) roster file.
 
 #### Example
 ```shell
-docker container run -p 49160:8000 githug/roster-converter
+docker container run -d -p 49160:8000 githug/roster-converter
 
 curl -v -i -F "data=@rosterFile.rosz" -H "Content-Type: multipart/form-data" -X POST http://localhost:49160/conversion
 ```
