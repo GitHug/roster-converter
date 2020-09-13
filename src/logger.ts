@@ -15,8 +15,12 @@ abstract class Logger {
   log(...data: unknown[]): void {
     if (process.env.SILENT) return;
 
-    const message = `⚡️[server ${Level[this.level]}]: ${data}`;
+    const message = `⚡️[${Level[this.level]} ${this.timestamp()}]: ${data}`;
     this.logMethod(message);
+  }
+
+  private timestamp(): string {
+    return new Date(Date.now()).toISOString().replace(/T/, ' ').replace(/\..+/, '');
   }
 }
 

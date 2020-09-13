@@ -3,6 +3,7 @@ import * as logger from '../logger';
 describe('logger', () => {
   beforeEach(() => {
     process.env.SILENT = '';
+    jest.spyOn(Date, 'now').mockImplementation(() => 1600010987727);
   });
 
   afterEach(() => {
@@ -13,28 +14,28 @@ describe('logger', () => {
     const spy = jest.spyOn(global.console, 'log').mockImplementation();
 
     logger.info('Some message');
-    expect(spy).toHaveBeenCalledWith('⚡️[server INFO]: Some message');
+    expect(spy).toHaveBeenCalledWith('⚡️[INFO 2020-09-13 15:29:47]: Some message');
   });
 
   it('should print a warn message', () => {
     const spy = jest.spyOn(global.console, 'warn').mockImplementation();
 
     logger.warn('Some message');
-    expect(spy).toHaveBeenCalledWith('⚡️[server WARN]: Some message');
+    expect(spy).toHaveBeenCalledWith('⚡️[WARN 2020-09-13 15:29:47]: Some message');
   });
 
   it('should print an error message', () => {
     const spy = jest.spyOn(global.console, 'error').mockImplementation();
 
     logger.error('Some message');
-    expect(spy).toHaveBeenCalledWith('⚡️[server ERROR]: Some message');
+    expect(spy).toHaveBeenCalledWith('⚡️[ERROR 2020-09-13 15:29:47]: Some message');
   });
 
   it('should print a trace message', () => {
     const spy = jest.spyOn(global.console, 'trace').mockImplementation();
 
     logger.trace('Some message');
-    expect(spy).toHaveBeenCalledWith('⚡️[server ERROR]: Some message');
+    expect(spy).toHaveBeenCalledWith('⚡️[ERROR 2020-09-13 15:29:47]: Some message');
   });
 
   it.each([
