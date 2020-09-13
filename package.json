@@ -11,7 +11,8 @@
     "cm": "git-cz",
     "build": "tsc --project ./",
     "test": "jest",
-    "lint": "eslint '*.{js,ts}' '*/**/*.{js,ts}' --ignore-pattern '/dist/*'"
+    "lint": "eslint '*.{js,ts}' '*/**/*.{js,ts}' --ignore-pattern '/dist/*'",
+    "release": "standard-version"
   },
   "devDependencies": {
     "@commitlint/cli": "^9.1.2",
@@ -54,7 +55,7 @@
   },
   "lint-staged": {
     "*.{js,ts}": [
-      "eslint --fix"
+      "yarn lint --fix"
     ]
   },
   "config": {
