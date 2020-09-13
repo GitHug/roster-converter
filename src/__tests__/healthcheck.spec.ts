@@ -1,7 +1,6 @@
 import http, { ClientRequest, IncomingMessage } from 'http';
 
 jest.mock('http');
-jest.mock('form-data');
 
 const mockHttp = http as jest.Mocked<typeof http>;
 
@@ -20,7 +19,7 @@ describe('healthcheck', () => {
   } as unknown) as ClientRequest;
 
   beforeEach(() => {
-    mockHttp.request.mockImplementationOnce(() => request);
+    mockHttp.request.mockImplementation(() => request);
   });
 
   it('should exit with error code 1 if an error occurs', () => {

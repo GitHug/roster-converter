@@ -12,6 +12,14 @@ jest.mock('../schema', () => ({
 }));
 const mockedSchema = schema as jest.Mocked<typeof schema>;
 
+describe('GET /ping - pong', () => {
+  it('returns 200', async () => {
+    const result = await request(app).get('/ping');
+    expect(result.status).toBe(200);
+    expect(JSON.parse(result.text)).toEqual({ message: 'pong' });
+  });
+});
+
 describe('POST /conversion - converts roster file to Javascript object', () => {
   it('returns a 422 if no form data is included', async () => {
     const result = await request(app).post('/conversion');

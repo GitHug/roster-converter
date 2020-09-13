@@ -9,6 +9,12 @@ app.set('port', process.env.PORT || 8000);
 
 const upload = multer();
 
+app.get('/ping', (req, res) => {
+  return res.status(200).send({
+    message: 'pong'
+  });
+});
+
 app.post('/conversion', upload.any(), async (req, res) => {
   info('Receiving request');
 
