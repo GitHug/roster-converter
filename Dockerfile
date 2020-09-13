@@ -14,4 +14,4 @@ EXPOSE 8000
 
 CMD ["node", "dist/server.js"]
 
-HEALTHCHECK --interval=10s --timeout=10s --start-period=5s --retries=3 CMD ["node", "dist/healthcheck/healthcheck.js"]
+HEALTHCHECK --interval=10s --timeout=10s --start-period=5s --retries=3 CMD ["node", "dist/healthcheck.js"]

@@ -26,7 +26,7 @@ describe('healthcheck', () => {
   it('should exit with error code 1 if an error occurs', () => {
     const exitSpy = jest.spyOn(process, 'exit').mockImplementation();
 
-    require('../index');
+    require('../healthcheck');
 
     map['error'](new Error());
 
@@ -42,7 +42,7 @@ describe('healthcheck', () => {
   ])('should exit with error code %s if the response has status code %s', (exitCode, statusCode) => {
     const exitSpy = jest.spyOn(process, 'exit').mockImplementation();
 
-    require('../index');
+    require('../healthcheck');
 
     const response = {
       statusCode

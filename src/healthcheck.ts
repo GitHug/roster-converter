@@ -2,7 +2,7 @@ import http from 'http';
 import path from 'path';
 import fs from 'fs';
 import FormData from 'form-data';
-import { info, trace } from '../logger';
+import { info, trace } from './logger';
 
 const form = new FormData();
 form.append('data', fs.createReadStream(path.resolve('src/healthcheck/rosterFile.rosz')));
