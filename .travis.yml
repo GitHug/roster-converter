@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+- 14
+cache: yarn
+
+jobs:
+  include:
+  - stage: test
+    script: yarn test
+
+stages:
+- name: test
+
+before_install:
+- yarn global add codecov
+after_success:
+- codecov
