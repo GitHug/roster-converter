@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.com/GitHug/roster-converter.svg?branch=master)](https://travis-ci.com/GitHug/roster-converter)
+[![codecov](https://codecov.io/gh/GitHug/roster-converter/branch/master/graph/badge.svg)](https://codecov.io/gh/GitHug/roster-converter)
+
 # Roster Converter
 Converts Battlescribe roster files to Javascript.
 
