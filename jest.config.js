@@ -6,5 +6,6 @@ module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
   testPathIgnorePatterns: ['/node_modules/', '/dist/'],
-  collectCoverage: true
+  collectCoverage: true,
+  setupFiles: ['<rootDir>/.jest/setEnvVars.js']
 };
