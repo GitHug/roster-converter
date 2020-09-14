@@ -1,6 +1,6 @@
 {
   "name": "roster-converter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./dist/server.js",
   "types": "./dist/server.d.ts",
   "repository": "https://github.com/GitHug/roster-converter.git",
